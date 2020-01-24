@@ -78,14 +78,6 @@ function validateLastName() {
   }
 }
 
-function validatePhoneNumber() {
-  var phone_number = getPhoneNumber();
-  if (phone_number.length === "") {
-    return false;
-  } else {
-    return true;
-  }
-}
 /**
  * this function supposely validates submitted username
  * @returns [Boolean] true when valid, false otherwise
@@ -218,30 +210,6 @@ function getPhoneNumber() {
     return "";
   } else {
     return document.registration.phone_number.value;
-  }
-}
-
-function getFirstName() {
-  if (typeof document.registration.firstname.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.firstname.value;
-  }
-}
-
-function getLastName() {
-  if (typeof document.registration.lastname.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.lastname.value;
-  }
-}
-
-function getPhoneNumber() {
-  if (typeof document.registration.phonenumber.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.phonenumber.value;
   }
 }
 
