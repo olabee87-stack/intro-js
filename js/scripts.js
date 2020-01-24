@@ -7,9 +7,9 @@ function validateForm(e) {
   console.log("user name: " + validateUsername());
   console.log("email: " + validateEmail());
   console.log("password: " + validatePassword());
-  console.log("first_name: " + validateFirstName());
-  console.log("last_name: " + validateLastName());
-  console.log("phone_number: " + validatePhoneNumber());
+  console.log("firstname: " + validateFirstName());
+  console.log("lastname: " + validateLastName());
+  console.log("phonenumber: " + validatePhoneNumber());
 
   //  the below code is only true when all the conditions are met. If one is false, then all becomes false
   if (
@@ -120,6 +120,11 @@ function validatePassword() {
   var _password = getPassword();
   var _confirmPassword = getConfirmPassword();
 
+  if (_password !== _confirmPassword) {
+    alert("Both passwords do not match, check again");
+    return false;
+  }
+
   if (_password.length < 8) {
     alert("Are you kidding me? That thing is too short!");
     return false;
@@ -127,13 +132,6 @@ function validatePassword() {
 
   return true;
 }
-
-if (_password !== _confirmPassword) {
-  alert("Both passwords do not match, check again");
-  return false;
-}
-
-return true;
 
 /**
  * this function supposely checks whether the sample is an empty string
@@ -161,26 +159,26 @@ function getUserName() {
 }
 
 function getFirstName() {
-  if (typeof document.registration.first_name.value === "undefined") {
+  if (typeof document.registration.firstname.value === "undefined") {
     return "";
   } else {
-    return document.registration.first_name.value;
+    return document.registration.firstname.value;
   }
 }
 
 function getLastName() {
-  if (typeof document.registration.last_name.value === "undefined") {
+  if (typeof document.registration.lastname.value === "undefined") {
     return "";
   } else {
-    return document.registration.last_name.value;
+    return document.registration.lastname.value;
   }
 }
 
 function getPhoneNumber() {
-  if (typeof document.registration.phone_number.value === "undefined") {
+  if (typeof document.registration.phonenumber.value === "undefined") {
     return "";
   } else {
-    return document.registration.phone_number.value;
+    return document.registration.phonenumber.value;
   }
 }
 
