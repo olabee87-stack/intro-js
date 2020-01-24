@@ -130,11 +130,26 @@ function validatePassword() {
     return false;
   }
 
+  if (!checkNumber(_password)) {
+    return false;
+  }
+
+  if (!checkCapitalLetter(_password)) {
+    return false;
+  }
+
   return true;
 }
 
-function checkNumber(phonenumber) {
-  if (phonenumber.match([0 - 9]).length > 2) {
+function checkNumber(_password) {
+  if (_password.match(/[0-9]+/g).length > 0) {
+    return true;
+  }
+  return false;
+}
+
+function checkCapitalLetter(_password) {
+  if (_password.match(/[A-Z]+/g).length > 0) {
     return true;
   }
   return false;
