@@ -1,12 +1,8 @@
 var registeredUsers = []; // this array stores valid usernames until the next pageload
 
-if (registeredUsers.length > 5) {
-  registeredUsers.shift();
-}
-
 function validateForm(e) {
   e.preventDefault(); // stop the submit button from refreshing the page
-  console.log("validating....");
+  console.log("validating ....");
 
   console.log("user name: " + validateUsername());
   console.log("email: " + validateEmail());
@@ -15,21 +11,41 @@ function validateForm(e) {
   console.log("last_name: " + validateLastName());
   console.log("phone_number: " + validatePhoneNumber());
 
-  if (validateUsername() && validateEmail() && validatePassword()) {
-    var _newUser = getUserName();
+  if (
+    validateUsername() &&
+    validateEmail() &&
+    validatePassword() &&
+    validatePhoneNumber() &&
+    validateFirstName() &&
+    validateLastName()
+  ) {
+    var _newUser = getUserDataObj();
+    // add code to update registeredUsers array with new username and call render function
+    // TODO
     registeredUsers.push(_newUser);
     renderRegisteredUsers();
-
-    // add code to update registeredUsers array with new user and call render function
-    // TODO
     document.registration.reset(); // reset form input fields
   }
 }
 
+function getUserDataObj() {
+  return {
+    userName: getUserName(),
+    firstName: getFirstName(),
+    lastName: getLastName(),
+    email: getEmail(),
+    phoneNumber: getPhoneNumber(),
+    password: getPassword(),
+    confirmPassword: getConfirmPassword()
+  };
+}
+
 function renderRegisteredUsers() {
+  document.getElementById("registered-users").innerHTML = "";
+
   registeredUsers.forEach(function(registeredUser) {
     var _newUser = document.createElement("li");
-    _newUser.innerHTML = registeredUser;
+    _newUser.innerHTML = JSON.stringify(registeredUser);
     document.getElementById("registered-users").appendChild(_newUser);
   });
 }
@@ -70,6 +86,36 @@ function validatePhoneNumber() {
     return true;
   }
 }
+/**
+ * this function supposely validates submitted username
+ * @returns [Boolean] true when valid, false otherwise
+ */
+function validateFirstName() {
+  var _firstName = getFirstName();
+
+  return _firstName !== "";
+}
+
+/**
+ * this function supposely validates submitted username
+ * @returns [Boolean] true when valid, false otherwise
+ */
+function validateLastName() {
+  var _lastName = getLastName();
+
+  return _lastName !== "";
+}
+
+/**
+ * this function supposely validates submitted username
+ * @returns [Boolean] true when valid, false otherwise
+ */
+function validatePhoneNumber() {
+  var _phoneNumber = getPhoneNumber();
+
+  return !isNaN(_phoneNumber);
+}
+
 /**
  * this function supposely validates submitted email
  * @returns [Boolean] true when valid, false otherwise
@@ -116,13 +162,15 @@ function validatePassword() {
     return false;
   }
 
-  if (_password !== _confirmPassword) {
-    alert("Both passwords do not match, check again");
-    return false;
-  }
-
   return true;
 }
+
+if (_password !== _confirmPassword) {
+  alert("Both passwords do not match, check again");
+  return false;
+}
+
+return true;
 
 /**
  * this function supposely checks whether the sample is an empty string
@@ -173,6 +221,30 @@ function getPhoneNumber() {
   }
 }
 
+function getFirstName() {
+  if (typeof document.registration.firstname.value === "undefined") {
+    return "";
+  } else {
+    return document.registration.firstname.value;
+  }
+}
+
+function getLastName() {
+  if (typeof document.registration.lastname.value === "undefined") {
+    return "";
+  } else {
+    return document.registration.lastname.value;
+  }
+}
+
+function getPhoneNumber() {
+  if (typeof document.registration.phonenumber.value === "undefined") {
+    return "";
+  } else {
+    return document.registration.phonenumber.value;
+  }
+}
+
 function getEmail() {
   if (typeof document.registration.email.value === "undefined") {
     return "";
@@ -200,4 +272,3 @@ function getConfirmPassword() {
     return document.registration.password_confirm.value;
   }
 }
-// TODO
