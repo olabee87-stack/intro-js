@@ -35,9 +35,9 @@ function getUserDataObj() {
     firstName: getFirstName(),
     lastName: getLastName(),
     email: getEmail(),
-    phoneNumber: getPhoneNumber(),
-    password: getPassword(),
-    confirmPassword: getConfirmPassword()
+    phoneNumber: getPhoneNumber()
+    //password: getPassword(),
+    //confirmPassword: getConfirmPassword()
   };
 }
 
