@@ -11,6 +11,7 @@ function validateForm(e) {
   console.log("last_name: " + validateLastName());
   console.log("phone_number: " + validatePhoneNumber());
 
+  //  the below code is only true when all the conditions are met. If one is false, then all becomes false
   if (
     validateUsername() &&
     validateEmail() &&
@@ -19,9 +20,9 @@ function validateForm(e) {
     validateFirstName() &&
     validateLastName()
   ) {
-    var _newUser = getUserDataObj();
     // add code to update registeredUsers array with new username and call render function
     // TODO
+    var _newUser = getUserDataObj();
     registeredUsers.push(_newUser);
     renderRegisteredUsers();
     document.registration.reset(); // reset form input fields
@@ -61,47 +62,17 @@ function validateUsername() {
 }
 
 function validateFirstName() {
-  var first_name = getFirstName();
-  if (first_name.length === " ") {
-    return false;
-  } else {
-    return true;
-  }
-}
-
-function validateLastName() {
-  var first_name = getLastName();
-  if (last_name.length === " ") {
-    return false;
-  } else {
-    return true;
-  }
-}
-
-/**
- * this function supposely validates submitted username
- * @returns [Boolean] true when valid, false otherwise
- */
-function validateFirstName() {
   var _firstName = getFirstName();
 
   return _firstName !== "";
 }
 
-/**
- * this function supposely validates submitted username
- * @returns [Boolean] true when valid, false otherwise
- */
 function validateLastName() {
   var _lastName = getLastName();
 
   return _lastName !== "";
 }
 
-/**
- * this function supposely validates submitted username
- * @returns [Boolean] true when valid, false otherwise
- */
 function validatePhoneNumber() {
   var _phoneNumber = getPhoneNumber();
 
