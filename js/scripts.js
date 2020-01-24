@@ -133,6 +133,13 @@ function validatePassword() {
   return true;
 }
 
+function checkNumber(phonenumber) {
+  if (phonenumber.match([0 - 9]).length > 2) {
+    return true;
+  }
+  return false;
+}
+
 /**
  * this function supposely checks whether the sample is an empty string
  * or there is space within it
