@@ -13,22 +13,33 @@
     prev.addEventListener("click", getPrev);
   }
 
-  function getNext() {
     // TODO
-    /   //get items with index of slide, remove active class from it
+      //get items with index of slide, remove active class from it
         //slide++ to increase the value of slide by 1
         //get items element with index of slide, add active class to it
 
-        
+    function getNext() {  
     items[slide].classList.remove("active"); //This is the same as (items = document.getElementsByClassName(itemClassName)),
-    slide++; // This is increasing the slide by 1 on each click
+    
+    if (slide === totalItems - 1){
+    slide = 0;
+    } else{
+    slide++;
+    } // This is increasing the slide by 1 on each click
     items[slide].classList.add("active");
-  }
+}
+  
 
   function getPrev() {
-      items[slide].classList.add('active');
-      slide--;
       items[slide].classList.remove('active');
+
+      if (slide === 0){
+          slide = totalItems - 1;
+      } else {
+        slide--;
+      }
+     
+      items[slide].classList.add('active');
   }
 
   
