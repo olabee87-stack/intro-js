@@ -13,6 +13,7 @@
     prev.addEventListener("click", getPrev);
   }
 
+  
     // TODO
       //get items with index of slide, remove active class from it
         //slide++ to increase the value of slide by 1
