@@ -42,7 +42,8 @@ function getUserDataObj() {
 }
 
 function renderRegisteredUsers() {
-  document.getElementById("registered-users").innerHTML = "";
+  // document.getElementById("registered-users").innerHTML = "";
+  $("#registered-users").empty(); //jquery version of the above
 
   registeredUsers.forEach(function(registeredUser) {
     var _newUser = document.createElement("li");
@@ -50,6 +51,7 @@ function renderRegisteredUsers() {
     document.getElementById("registered-users").appendChild(_newUser);
   });
 }
+//$('<li>').text(JSON.stringify(registeredUser)).appendTo('#registered-users');
 
 /**
  * this function supposely validates submitted username
