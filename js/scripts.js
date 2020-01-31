@@ -6,10 +6,10 @@
 
   // Set event listeners
   function setEventListeners() {
-    var next = $(".slider_button--next")[0];
+    var next = $(".slider__button--next")[0];
     //var next = document.getElementsByClassName("slider__button--next")[0],
     //prev = document.getElementsByClassName("slider__button--prev")[0];
-    prev = $(".slider_button--prev")[0];
+    prev = $(".slider__button--prev")[0];
 
     next.addEventListener("click", getNext);
     //prev.addEventListener("click", getPrev);
@@ -22,7 +22,11 @@
   //get items element with index of slide, add active class to it
 
   function getNext() {
-    items[slide].removeClass("active"); //This is the same as (items = document.getElementsByClassName(itemClassName)),
+    $(".slider__photo")
+      .eq(slide)
+      .removeClass("active");
+
+    //items[slide].removeClass("active"); //This is the same as (items = document.getElementsByClassName(itemClassName)),
 
     if (slide === totalItems - 1) {
       slide = 0;
@@ -33,15 +37,20 @@
   }
 
   function getPrev() {
-    items[slide].removeClass("active");
+    $(".slider__photo")
+      .eq(slide)
+      .removeClass("active");
+    //items[slide].removeClass("active");
 
     if (slide === 0) {
       slide = totalItems - 1;
     } else {
       slide--;
     }
-
-    items[slide].addClass("active");
+    $(".slider__photo")
+      .eq(slide)
+      .addClass("active");
+    //items[slide].addClass("active");
   }
 
   function initSlider() {
