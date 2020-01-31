@@ -7,19 +7,18 @@
   // Set event listeners
   function setEventListeners() {
     var next = $(".slider__button--next")[0];
-    //var next = document.getElementsByClassName("slider__button--next")[0],
-    //prev = document.getElementsByClassName("slider__button--prev")[0];
-    prev = $(".slider__button--prev")[0];
-
     next.addEventListener("click", getNext);
-    //prev.addEventListener("click", getPrev);
+    prev = $(".slider__button--prev")[0];
     $(prev).on("click", getPrev); //jquery version
   }
-
+  /*var next = document.getElementsByClassName("slider__button--next")[0],
+//prev = document.getElementsByClassName("slider__button--prev")[0];
+//prev.addEventListener("click", getPrev);
+    
   // TODO
   //get items with index of slide, remove active class from it
   //slide++ to increase the value of slide by 1
-  //get items element with index of slide, add active class to it
+  //get items element with index of slide, add active class to it*/
 
   function getNext() {
     $(".slider__photo")
@@ -50,7 +49,7 @@
     $(".slider__photo")
       .eq(slide)
       .addClass("active");
-    //items[slide].addClass("active");
+    items[slide].addClass("active");
   }
 
   function initSlider() {
