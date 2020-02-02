@@ -7,7 +7,8 @@
   // Set event listeners
   function setEventListeners() {
     var next = $(".slider__button--next")[0];
-    next.addEventListener("click", getNext);
+    $(next).on("click", getNext);
+    //next.addEventListener("click", getNext);
     prev = $(".slider__button--prev")[0];
     $(prev).on("click", getPrev); //jquery version
   }
