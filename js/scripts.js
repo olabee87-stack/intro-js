@@ -7,14 +7,16 @@
   // Set event listeners
   function setEventListeners() {
     var next = $(".slider__button--next")[0];
-    $(next).on("click", getNext);
-    //next.addEventListener("click", getNext);
     prev = $(".slider__button--prev")[0];
-    $(prev).on("click", getPrev); //jquery version
+
+    $(next).on("click", getNext);
+    $(prev).on("click", getPrev);
   }
+  //jquery version
+  //next.addEventListener("click", getNext);
   /*var next = document.getElementsByClassName("slider__button--next")[0],
-//prev = document.getElementsByClassName("slider__button--prev")[0];
-//prev.addEventListener("click", getPrev);
+   //prev = document.getElementsByClassName("slider__button--prev")[0];
+  //prev.addEventListener("click", getPrev);
     
   // TODO
   //get items with index of slide, remove active class from it
@@ -22,12 +24,7 @@
   //get items element with index of slide, add active class to it*/
 
   function getNext() {
-    $(".slider__photo")
-      .eq(slide)
-      .removeClass("active");
-
     //items[slide].removeClass("active"); //This is the same as (items = document.getElementsByClassName(itemClassName)),
-
     if (slide === totalItems - 1) {
       slide = 0;
     } else {
