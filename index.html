@@ -222,6 +222,10 @@
 </div>
 
 <div>
+  <a id="weather_display_button"></a> <!--Flowing button-->
+</div>
+
+<div>
   <a id="print_button">Print</a> <!--Print button-->
 </div>
 </footer><!-- footer -->
@@ -267,6 +271,19 @@
   });
 
   $(document).ready(function() {
+    
+    $.ajax({            //put this in the main doc.ready 
+  url: "http://api.openweathermap.org/data/2.5/weather?q=Helsinki&APPID=de0011947197d8778c9c7551a2e139dc"
+}).done(function (response) {
+  //console.log('This is the current weather: ')
+  console.log(response)
+  $('#weather_display_button').text(response.name
+  + ' today is '
+  + response.main.temp        
+  + ' and it feels like '
+  + response.main.feels_like);
+  });
+
     $('[data-type=proteinbar]').css(
       'background-color', 'blue')
     
