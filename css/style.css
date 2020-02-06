@@ -279,7 +279,7 @@ em {
   text-align: center;
 }
 
-#button {
+#button { /*Scroll to the top button*/
   display: inline-block;
   background-color: #ff9800;
   width: 50px;

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
+  
 <header id="home" class="header">
   <nav class="nav" role="navigation">
     <div class="container nav-elements">
@@ -218,14 +218,22 @@
 </div><!-- container -->
 
 <div>
-  <a id="button"></a>
+  <a id="button"></a> <!--Scroll button-->
 </div>
 
 <div>
-  <a id="print_button">Print</a>
+  <a id="print_button">Print</a> <!--Print button-->
 </div>
 </footer><!-- footer -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+
+
 <script>
 
   jQuery(document).ready(function() {
@@ -248,9 +256,9 @@
   });
 //blinking logo 
   $(document).ready(function() {
-    $('.branding').fadeTo("fast", 0.9)
-    .fadeTo("slow", 0.3)
-    .fadeTo("slow", 0.2)
+    $('.branding').fadeTo(300, 0.1) /**/
+    .fadeTo(300, 1)
+    
   });
 //changing background color of mineral water products to green
   $(document).ready(function() {
@@ -263,7 +271,7 @@
       'background-color', 'blue')
     
   });
-
+//Adding a button that prints
   $('#print_button').click(function() {
     window.print();
   });
