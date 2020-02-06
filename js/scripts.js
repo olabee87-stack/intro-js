@@ -31,13 +31,13 @@ function validateForm(e) {
 
 function getUserDataObj() {
   return {
-    userName: getUserName(),
-    firstName: getFirstName(),
-    lastName: getLastName(),
-    email: getEmail(),
-    phoneNumber: getPhoneNumber()
-    //password: getPassword(),
-    //confirmPassword: getConfirmPassword()
+    userName: get("username"),
+    firstName: get("firstname"),
+    lastName: get("lastname"),
+    email: get("email"),
+    phoneNumber: get("phonenumber"),
+    password: get("password"),
+    password_confirm: get("password_confirm")
   };
 }
 
@@ -174,62 +174,10 @@ function checkSpace(sample) {
  *
  * @returns [Boolean] true when valid, false otherwise
  */
-function getUserName() {
+function get(param) {
   if (typeof document.registration.username.value === "undefined") {
     return "";
   } else {
-    return document.registration.username.value;
-  }
-}
-
-function getFirstName() {
-  if (typeof document.registration.firstname.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.firstname.value;
-  }
-}
-
-function getLastName() {
-  if (typeof document.registration.lastname.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.lastname.value;
-  }
-}
-
-function getPhoneNumber() {
-  if (typeof document.registration.phonenumber.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.phonenumber.value;
-  }
-}
-
-function getEmail() {
-  if (typeof document.registration.email.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.email.value;
-  }
-}
-
-// TODO
-
-function getPassword() {
-  if (typeof document.registration.password.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.password.value;
-  }
-}
-
-// TODO
-
-function getConfirmPassword() {
-  if (typeof document.registration.password_confirm.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.password_confirm.value;
+    return document.registration[param].value;
   }
 }
