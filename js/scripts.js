@@ -40,3 +40,32 @@ function doAjaxCall(searchTerm) {
 
   $.getJSON(flickrAPI, paramsForFlickr, handleResponse);
 }
+
+$(document).ready(function() {
+  $('[name="search_button"]').click(function() {
+    alert("User has just entered: " + document.search_bar.search_query.value);
+
+    $.ajax({
+      url: "//api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+      dataType: "json",
+      data: {
+        tags: document.search_bar.search_query.value,
+        tagmode: "all",
+        format: "json"
+      }
+    }).done(function(data) {
+      console.log(data);
+
+      $("#imageWrapper").empty();
+
+      data.items.forEach(function(item) {
+        $("#imageWrapper").append(`
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <img class="img-responsive" src="${item.media.m}">
+                </img> 
+                </div>
+                `);
+      });
+    });
+  });
+});
