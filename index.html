@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>A Digital Analog Clock</title>
     <script src="js/script.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <main class="main">
-      <div class="clockbox">
-        <svg
-          id="clock"
-          xmlns="http://www.w3.org/2000/svg"
-          width="600"
-          height="600"
-          viewBox="0 0 600 600"
-        >
+        <div class="clockbox">
+            <svg id="clock" xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
           <g id="face">
             <circle class="circle" cx="300" cy="300" r="253.9" />
             <path
@@ -39,11 +34,11 @@
             <circle class="sizing-box" cx="300" cy="300" r="253.9" />
           </g>
         </svg>
-      </div>
+        </div>
 
-      <div class="audio music">
-        <label for="music_hour">Click hour:</label>
-        <select id="music-hour">
+        <div class="audio music">
+            <label for="music_hour">Hour:</label>
+            <select id="music-hour">
           <option value="01">01</option>
           <option value="02">02</option>
           <option value="03">03</option>
@@ -69,9 +64,10 @@
           <option value="23">23</option>
           <option value="24">24</option>
         </select>
+            <p></p>
 
-        <label for="music_min">Click min:</label>
-        <select id="music-min">
+            <label for="music_min">Min:</label>
+            <select id="music-min">
           <option value="00">00</option>
           <option value="01">01</option>
           <option value="02">02</option>
@@ -133,8 +129,12 @@
           <option value="58">58</option>
           <option value="59">59</option>
         </select>
-      </div>
-      <!-- .clockbox -->
+            <p></p>
+
+            <button class="choose-time">Choose Time</button>
+        </div>
+        <!-- .clockbox -->
     </main>
-  </body>
+</body>
+
 </html>
