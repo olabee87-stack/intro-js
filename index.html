@@ -75,6 +75,8 @@
       </div>
     </div>
   </div>
+
+  <button id="popup-three" type="button">Click Here</button>
   <div id="popup3" class="overlay">
     <a class="close" href="#">&times;</a>
     <div class="popup" style="height: 350px; overflow: scroll"> 
@@ -348,25 +350,54 @@
     
     var pop = document.getElementById('popup1');
     
+    
     document.addEventListener('mouseleave', showPopUp);
         function showPopUp() {
         pop.style.visibility = 'visible';
     }
+
+    
 
       pop.getElementsByClassName('close')[0].addEventListener('click', closePopUp);
          function closePopUp() {
          pop.style.visibility = 'hidden';
          }
 
+         document.getElementById("popup-three").addEventListener('click', pop3);
+         function pop3() {
+      document.getElementById('popup3').style.visibility = 'visible';
+    }
+
+    
+      $(document.on('mouseleave', function() {
+        $('#popup3').css('visibility', 'visible');
+       }));
+
+      
+      $(document).ready() {
+
+      
+       $('#popup3 .popup').on('scroll', function(){
+        if ($('#popup3 .popup').scrollTop() + $ ('#popup3 .popup').height ());
+        console.log($('#popup3 #dialog').height())
+        ;});
+        
+      
+      
+
+
+    
          
          document.getElementById('subscribe_popup').getElementsByClassName('button')[0].addEventListener('click', function() {
          var  userInput = 'email';
-    var validationResult = true;
+    
+       var validationResult = true;
 
 
     if (validationResult === true) {
-  document.getElementById('popup1').style.visibility = 'hidden';
-  document.getElementById('popup2').style.visibility = 'visible';
+    document.getElementById('popup1').style.visibility = 'hidden';
+      document.getElementById('popup2').style.visibility = 'visible';
+  
 }
 
   });
@@ -380,7 +411,7 @@
   return false;
 }
 
-
+      };
 
   
     

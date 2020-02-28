@@ -1576,6 +1576,17 @@ main {
   max-height: 30%;
   overflow: auto;
 }
+
+#popup-three {
+  background-color: pink;
+  width: 60px;
+  font-size: 14px;
+  font-weight: bold;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
 .newletter-title h2 {
   font-size: 24px;
   text-transform: uppercase;
