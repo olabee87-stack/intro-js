@@ -60,7 +60,7 @@
                   <input type="text" value="" name="subscribe_pemail" id="subscribe_pemail">
                   <input type="hidden" value="" name="subscribe_pname" id="subscribe_pname">
                   <div id="notification"></div>
-                  <a class="button" onclick="email_subscribepopup()"><span>Submit</span></a>
+                  <a class="button"><span>Submit</span></a>
                 </div>
               </form>
               <div class="subscribe-bottom">
@@ -346,7 +346,48 @@
 
   <script>
     
-  </script>
+    var pop = document.getElementById('popup1');
+    
+    document.addEventListener('mouseleave', showPopUp);
+        function showPopUp() {
+        pop.style.visibility = 'visible';
+    }
+
+      pop.getElementsByClassName('close')[0].addEventListener('click', closePopUp);
+         function closePopUp() {
+         pop.style.visibility = 'hidden';
+         }
+
+         
+         document.getElementById('subscribe_popup').getElementsByClassName('button')[0].addEventListener('click', function() {
+         var  userInput = 'email';
+    var validationResult = true;
+
+
+    if (validationResult === true) {
+  document.getElementById('popup1').style.visibility = 'hidden';
+  document.getElementById('popup2').style.visibility = 'visible';
+}
+
+  });
+
+  var email = document.getElementById('subscribe_popup').value;
+
+  function validateEmail(email) {
+   if (email.value.match (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+  return true;
+  } alert('invalid email');
+  return false;
+}
+
+
+
+  
+    
+    
+
+
+</script>
 
 </body>
 
